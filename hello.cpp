@@ -10,12 +10,10 @@ namespace problem_1
     printf("Hello, world!\n");
 
     while (true){
-      //Create string s
-      std::string input;   
-      //Resize input (to make it work in scanf)
-      input.resize(100);
-      //Read s from console
-      scanf("%s", &input[0]);
+      //Create string for input
+      std::string input;
+      //Read input from console
+      std::cin >> input;
       //Print "Hello, <string>!" in console  
       printf("Hello, %s!\n", input.c_str());
     }
