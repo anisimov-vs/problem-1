@@ -13,7 +13,8 @@ namespace problem_1
       //Create string for input
       std::string input;
       //Read input from console
-      std::cin >> input;
+      getline(std::cin, input);
+      //std::cin >> input;
       //Print "Hello, <string>!" in console  
       printf("Hello, %s!\n", input.c_str());
     }
