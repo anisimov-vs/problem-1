@@ -14,7 +14,6 @@ namespace problem_1
       std::string input;
       //Read input from console
       getline(std::cin, input);
-      //std::cin >> input;
       //Print "Hello, <string>!" in console  
       printf("Hello, %s!\n", input.c_str());
     }
