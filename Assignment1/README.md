@@ -4,10 +4,8 @@
 ## Contacts
 st129629@stdudent.spbu.ru
 ## Description
-Home assingment 1 - extended "Hello world". First says "Hello,
-World". After this reads a string in a cycle and says "Hell,
-<string>"
+Home assingment 1 - extended "Hello world". First says "Hello, World". After this reads a string in a cycle and says "Hello, <string>"
 ## Build
-'''make'''
+```make```
 ## Run
-'''./hello'''
+```./hello```

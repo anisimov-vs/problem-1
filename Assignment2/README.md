@@ -4,5 +4,7 @@
 ## Contacts
 st129629@stdudent.spbu.ru
 ## Description
-Home assingment 2
+Home Assingment 2
+- [Home Assignment 2a](Assignment2a)
+- [Home Assignment 2b](Assignment2b)
 
