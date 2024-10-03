@@ -4,7 +4,7 @@
 ## Contacts
 st129629@stdudent.spbu.ru
 ## Description
-Home assingment 2a
+Home Assignment 2a - Binary file reverse. Open a binary file, determine its size, allocate an array, read the file into the array, reverse the array, and write the reversed content to a new file in one operation.
 ## Build
 make
 ## Run
