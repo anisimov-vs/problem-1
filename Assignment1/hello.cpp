@@ -1,3 +1,6 @@
+// Anisimov Vasiliy st129629@student.spbu.ru
+// Home Assginment 1
+
 #include <iostream>
 #include "hello.h"
 #include "stdio.h"
