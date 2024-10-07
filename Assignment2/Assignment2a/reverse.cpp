@@ -1,42 +1,58 @@
 #include <iostream>
 #include <fstream>
-#include <filesystem>
-#include "stdio.h"
+#include <string> // Include string for std::string
 
 namespace assignment_2a {
   void reverse(){
-    // Print file size
+    // Prompt for file path
     std::string inputFilePath;
-    printf("Path to the file: ");
+    std::cout << "Path to the file: ";
     std::cin >> inputFilePath;
-    std::filesystem::path filePath(inputFilePath);
-    std::uintmax_t fileSize = std::filesystem::file_size(filePath);
-    printf("File size: %d byte\n", fileSize);
-    //Open file
-    std::ifstream infile(inputFilePath, std::ios::binary | std::ios::in);
 
-    // Create array
+    // Open file in binary mode and position at the end
+    std::ifstream infile(inputFilePath, std::ios::binary | std::ios::ate);
+    if (!infile) {
+      std::cerr << "Error: Unable to open file \"" << inputFilePath << "\"\n";
+      return;
+    }
+
+    // Get file size
+    std::streamsize fileSize = infile.tellg();
+    std::cout << "File size: " << fileSize << " bytes\n";
+    infile.seekg(0, std::ios::beg); // Go back to the beginning
+
+    // Create buffer
     char* buffer = new char[fileSize];
 
-    // Write file to array
-    infile.read(buffer, fileSize);
+    // Read file into buffer
+    if (!infile.read(buffer, fileSize)) {
+      std::cerr << "Error: Unable to read file \"" << inputFilePath << "\"\n";
+      delete[] buffer;
+      return;
+    }
     infile.close();
 
-    // Reverse array
-    for (std::uintmax_t i = 0; i < fileSize / 2; ++i) {
+    // Reverse the buffer
+    for (std::streamsize i = 0; i < fileSize / 2; ++i) {
         std::swap(buffer[i], buffer[fileSize - 1 - i]);
     }
-    std::string outFilePath = "out_"+inputFilePath;
-    // Create output file
-    std::ofstream outfile(outFilePath, std::ios::binary | std::ios::out);
 
-    // Write reversed array to file
+    // Prepare output file path
+    std::string outFilePath = "out_" + inputFilePath;
+
+    // Write reversed buffer to output file
+    std::ofstream outfile(outFilePath, std::ios::binary);
+    if (!outfile) {
+      std::cerr << "Error: Unable to create file \"" << outFilePath << "\"\n";
+      delete[] buffer;
+      return;
+    }
     outfile.write(buffer, fileSize);
     outfile.close();
 
-    // Clean memory
+    // Clean up
     delete[] buffer;
 
-    printf("File reversed succesfully and writed to %s\n", outFilePath.c_str());
+    std::cout << "File reversed successfully and written to \"" << outFilePath << "\"\n";
   }
 }
