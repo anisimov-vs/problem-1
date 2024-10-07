@@ -1,3 +1,6 @@
+// Anisimov Vasiliy st129629@student.spbu.ru
+// Home Assginment 2a
+
 #include <iostream>
 #include <fstream>
 #include <string> // Include string for std::string
