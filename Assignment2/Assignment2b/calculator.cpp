@@ -59,8 +59,11 @@ class Stack {
 
 double perform_operation(double (*operation)(double, double), Stack *stack){
   
-  if (stack->size() > 1)
-     stack->push(operation(stack->pop(), stack->pop()));
+  if (stack->size() > 1) {
+    double a = stack->pop();
+    double b = stack->pop();
+    stack->push(operation(a, b));
+  }
   else
     std::cerr << "Stack size < 1\n";
   
